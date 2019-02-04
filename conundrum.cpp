@@ -3,12 +3,17 @@
 #include <string>
 #include <stdio.h>
 
+
+//https://open.kattis.com/problems/conundrum
 int main(int argc, const char* argv[]) {
+	//str represents the input
 	std::string str;
 	std::cin >> str;
 	std::string::iterator iter;
+	//name holds the string "PER"
 	std::string name = "PER";
 	std::string::iterator iter2 = name.begin();
+	
 	int count = 0;
 	
 
