@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 
-//https://open.kattis.com/problems/conundrum
+//https://open.kattis.com/problems/aaah
 int main(int argc, const char* argv[]) {
 	std::string line1;
 	std::string line2;
