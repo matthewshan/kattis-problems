@@ -1,5 +1,6 @@
 import sys
 
+#Problem: https://open.kattis.com/problems/fizzbuzz
 #Input X Y N
 #Output R2 = 2*S - R1
 for i in sys.stdin:

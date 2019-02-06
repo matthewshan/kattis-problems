@@ -1,4 +1,5 @@
 import sys
+#https://open.kattis.com/problems/r2
 #Input R1 and S 
 #Output R2 = 2*S - R1
 for i in sys.stdin:
