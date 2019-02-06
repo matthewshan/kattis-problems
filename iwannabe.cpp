@@ -16,18 +16,21 @@ struct Monster {
 	long health;
 };
 
-//Sorting methods
-bool compareByAttack(const Monster &a, const Monster &b){
-	return a.attack < b.attack;
+bool operator==(const Monster &lhs, const Monster &rhs) {
+	return (lhs.attack == rhs.attack) && (lhs.defense == rhs.defense) && (lhs.health == rhs.health);
 }
 
-//Sorting 
+//Sorting methods
+bool compareByAttack(const Monster &a, const Monster &b){
+	return a.attack > b.attack;
+}
+ 
 bool compareByDefense(const Monster &a, const Monster &b){
-	return a.attack < b.attack;
+	return a.defense > b.defense;
 }
 
 bool compareByHealth(const Monster &a, const Monster &b){
-	return a.attack < b.attack;
+	return a.health > b.health;
 }
 
 //Main method
@@ -38,18 +41,18 @@ int main(int argc, const char* argv[]) {
 	
 	//Creates a vector for the monsters given 
 	long int a, d, h;
-	std::vector<Monster*> monsters;
+	std::vector<Monster> monsters;
 	for(int i = 0; i < n; i++) {
 		std::cin >> a >> d >> h;
-		Monster *temp;
-		temp->attack = a;
-		temp->defense = d;
-		temp->health = h;
+		Monster temp;
+		temp.attack = a;
+		temp.defense = d;
+		temp.health = h;
 		monsters.push_back(temp);
 	}	
 		
 	//Creates a vector for potential monster candidates. Duplicates will be deleted at the end.
-	std::vector<Monster*> candidates;
+	std::vector<Monster> candidates;
 
 	//Creates a vector for the top K attack monsters
 	std::sort(monsters.begin(), monsters.end(), compareByAttack);
@@ -67,7 +70,9 @@ int main(int argc, const char* argv[]) {
 		candidates.push_back(monsters.at(i));
 
 	//Prone duplicates
-		
+	candidates.erase(std::unique(candidates.begin(),candidates.end()), candidates.end());
+
+	std::cout << candidates.size() << std::endl;	
 
 }	
 
